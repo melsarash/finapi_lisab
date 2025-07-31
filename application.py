@@ -76,15 +76,8 @@ def get_portfolio(portfolio_id):
 @app.route("/api/portfolio/<portfolio_id>", methods=["PUT"])
 def update_portfolio(portfolio_id):
     data = request.json
-    return jsonify({"status": "success", "message": f"Portfolio {portfolio_id} updated with new data."})
-    
-    try:
-        response = requests.get(f"{BACKEND_API_BASE}/api/slow-endpoint")
-        result = response.json()
-    except Exception as e:
-        result = {"error": str(e)}
+    return jsonify({"status": "success", "message": f"Portfolio {portfolio_id} updated with new data."})    
 
-    return result
 @app.route("/api/portfolio/<portfolio_id>", methods=["DELETE"])
 def delete_portfolio(portfolio_id):
     return jsonify({"status": "success", "message": f"Portfolio {portfolio_id} deleted."})
