@@ -78,11 +78,6 @@ def update_portfolio(portfolio_id):
     data = request.json
     return jsonify({"status": "success", "message": f"Portfolio {portfolio_id} updated with new data."})
     
-@app.route('/slow-endpoint')
-def slow_endpoint():
-    if 'user' not in session:
-        return redirect(url_for('login'))
-
     try:
         response = requests.get(f"{BACKEND_API_BASE}/api/slow-endpoint")
         result = response.json()
